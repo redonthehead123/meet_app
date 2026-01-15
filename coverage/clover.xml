@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1768442596866" clover="3.2.0">
-  <project timestamp="1768442596867" name="All files">
-    <metrics statements="64" coveredstatements="64" conditionals="68" coveredconditionals="63" methods="24" coveredmethods="24" elements="156" coveredelements="151" complexity="0" loc="64" ncloc="64" packages="2" files="7" classes="7"/>
+<coverage generated="1768448160283" clover="3.2.0">
+  <project timestamp="1768448160284" name="All files">
+    <metrics statements="104" coveredstatements="68" conditionals="90" coveredconditionals="64" methods="28" coveredmethods="24" elements="222" coveredelements="156" complexity="0" loc="104" ncloc="104" packages="2" files="7" classes="7"/>
     <package name="src">
-      <metrics statements="21" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <metrics statements="61" coveredstatements="25" conditionals="24" coveredconditionals="3" methods="11" coveredmethods="7"/>
       <file name="App.jsx" path="C:\Users\jorda\Documents\careerfoundry\meet\src\App.jsx">
         <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="12" count="4" type="stmt"/>
@@ -22,13 +22,53 @@
         <line num="33" count="13" type="stmt"/>
       </file>
       <file name="api.js" path="C:\Users\jorda\Documents\careerfoundry\meet\src\api.js">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="11" count="385" type="stmt"/>
-        <line num="12" count="11" type="stmt"/>
-        <line num="13" count="11" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="14" type="stmt"/>
+        <metrics statements="46" coveredstatements="10" conditionals="22" coveredconditionals="1" methods="7" coveredmethods="3"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="385" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="41" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="14" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="5" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="79" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="91" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="93" count="0" type="stmt"/>
       </file>
       <file name="mock-data.js" path="C:\Users\jorda\Documents\careerfoundry\meet\src\mock-data.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

@@ -3,7 +3,7 @@ import mockData from './mock-data';
 const getToken = async (code) => {
  const encodeCode = encodeURIComponent(code);
  const response = await fetch(
-   'https://iw1c2ne4g9.execute-api.us-east-2.amazonaws.com/dev/api/token' + '/' + encodeCode;
+   'https://iw1c2ne4g9.execute-api.us-east-2.amazonaws.com/dev/api/token' + '/' + encodeCode
  );
  const { access_token } = await response.json();
  access_token && localStorage.setItem("access_token", access_token);
@@ -33,33 +33,34 @@ const checkToken = async (accessToken) => {
  return result;
 };
 
-const removeQuery = () => {
- let newurl;
- if (window.history.pushState && window.location.pathname) {
-   newurl =
-     window.location.protocol +
-     "//" +
-     window.location.host +
-     window.location.pathname;
-   window.history.pushState("", "", newurl);
- } else {
-   newurl = window.location.protocol + "//" + window.location.host;
-   window.history.pushState("", "", newurl);
- }
-};
-
 /**
  *
  * This function will fetch the list of all events
  */
 export const getEvents = async () => {
-  if (window.location.href.startsWith('http://localhost')) {
+ if (window.location.href.startsWith("http://localhost")) {
    return mockData;
+ }
+
+
+ const token = await getAccessToken();
+
+ const removeQuery = () => {
+  let newurl;
+  if (window.history.pushState && window.location.pathname) {
+    newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
   }
+ };
 
-  const token = await getAccessToken();
-
-  if (token) {
+ if (token) {
    removeQuery();
    const url =  "https://iw1c2ne4g9.execute-api.us-east-2.amazonaws.com/dev/api/get-events" + "/" + token;
    const response = await fetch(url);
