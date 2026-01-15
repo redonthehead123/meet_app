@@ -1,35 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
-import { getEvents } from './api';
+import { useEffect, useState } from 'react';
+import { extractLocations, getEvents } from './api';
 
-/**
- * Main App Component
- * 
- * Manages global state for events and number of events to display.
- * Coordinates data fetching and communication between CitySearch, 
- * NumberOfEvents, and EventList components.
- * 
- * @returns {JSX.Element} App container with integrated components
- */
+
+import './App.css';
+
+
 const App = () => {
-  const [events, setEvents] = useState([]);
-  const [currentNOE, setCurrentNOE] = useState(32);
+ const [allLocations, setAllLocations] = useState([]);
+ const [currentNOE, setCurrentNOE] = useState(32);
+ const [events, setEvents] = useState([]);
+ const [currentCity, setCurrentCity] = useState("See all cities");
 
-  useEffect(() => {
-    getEvents().then(data => setEvents(data));
-  }, []);
+ useEffect(() => {
+   fetchData();
+ }, [currentCity]);
 
-  const displayedEvents = events.slice(0, currentNOE);
 
-  return (
-    <div>
-      <CitySearch />
-      <NumberOfEvents currentNOE={currentNOE} setCurrentNOE={setCurrentNOE} />
-      <EventList events={displayedEvents} />
-    </div>
-  );
+ const fetchData = async () => {
+   const allEvents = await getEvents();
+   const filteredEvents = currentCity === "See all cities" ?
+     allEvents :
+     allEvents.filter(event => event.location === currentCity)
+   setEvents(filteredEvents.slice(0, currentNOE));
+   setAllLocations(extractLocations(allEvents));
+ }
+
+
+ return (
+   <div className="App">
+     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+     <NumberOfEvents />
+     <EventList events={events} />
+   </div>
+ );
 }
 
 

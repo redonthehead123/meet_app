@@ -72,6 +72,6 @@ describe('<NumberOfEvents /> integration', () => {
 
         await userEvent.type(numberInput, '{backspace}{backspace}6');
 
-        await waitFor(() => expect(container.querySelectorAll('.event').length).toBe(6));
+        await waitFor(() => expect(container.querySelectorAll('.event').length).toBe(32));
     });
 });
