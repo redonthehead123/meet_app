@@ -67,11 +67,11 @@ describe('<NumberOfEvents /> integration', () => {
 
         await waitFor(() => expect(container.querySelectorAll('.event').length).toBeGreaterThan(0));
 
-        const numberInput = container.querySelector('#number-of-events');
-        expect(numberInput).toBeInTheDocument();
+        const NumberOfEventsInput = container.querySelector('#number-of-events');
+        expect(NumberOfEventsInput).toBeInTheDocument();
 
-        await userEvent.type(numberInput, '{backspace}{backspace}6');
+        await userEvent.type(NumberOfEventsInput, '{backspace}{backspace}8');
 
-        await waitFor(() => expect(container.querySelectorAll('.event').length).toBe(32));
+        await waitFor(() => expect(container.querySelectorAll('.event').length).toBe(8));
     });
 });
