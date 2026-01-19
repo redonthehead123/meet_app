@@ -18,7 +18,7 @@ describe('<NumberOfEvents /> component', () => {
     });
 
     beforeEach(() => {
-        renderResult = render(<NumberOfEvents />);
+        renderResult = render(<NumberOfEvents setErrorAlert={jest.fn()} />);
         input = renderResult.getByRole('spinbutton');
     });
 
@@ -41,7 +41,8 @@ describe('<NumberOfEvents /> component', () => {
 
     test('calls setCurrentNOE prop when user types a numeric value', async () => {
         const mockSet = jest.fn();
-        renderResult.rerender(<NumberOfEvents setCurrentNOE={mockSet} />);
+        const mockSetError = jest.fn();
+        renderResult.rerender(<NumberOfEvents setCurrentNOE={mockSet} setErrorAlert={mockSetError} />);
         const numInput = renderResult.getByRole('spinbutton');
         await userEvent.type(numInput, '{backspace}{backspace}10');
         expect(mockSet).toHaveBeenCalledWith(10);
@@ -49,7 +50,8 @@ describe('<NumberOfEvents /> component', () => {
 
     test('does not call setCurrentNOE when input is non-numeric', async () => {
         const mockSet = jest.fn();
-        renderResult.rerender(<NumberOfEvents setCurrentNOE={mockSet} />);
+        const mockSetError = jest.fn();
+        renderResult.rerender(<NumberOfEvents setCurrentNOE={mockSet} setErrorAlert={mockSetError} />);
         const numInput = renderResult.getByRole('spinbutton');
         await userEvent.clear(numInput);
         await userEvent.type(numInput, 'ab');

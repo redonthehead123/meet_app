@@ -23,22 +23,14 @@ const NumberOfEvents = ({ currentNOE = 32, setCurrentNOE = () => {}, setErrorAle
         const next = e.target.value;
         setValue(next);
 
-        // Trim whitespace and parse to number once for validation
-        const trimmed = next.trim();
-        const num = trimmed === '' ? NaN : Number(trimmed);
+        const num = Number(next);
 
-        // Only notify parent with valid numeric input to prevent transient updates
-        if (/^\d+$/.test(trimmed) && typeof setCurrentNOE === 'function') {
-            setCurrentNOE(Number(trimmed));
-        }
-
-        // Validate input range (1-250)
-        const errorText = trimmed === '' || Number.isNaN(num) || num < 1 || num > 250
-            ? 'Please enter a number between 1 and 250'
-            : '';
-        
-        if (typeof setErrorAlert === 'function') {
-            setErrorAlert(errorText);
+        // Validate: error if not a number or <= 0 or > 250
+        if (isNaN(num) || num <= 0 || num > 250) {
+            setErrorAlert('Please enter a number between 1 and 250');
+        } else {
+            setErrorAlert('');
+            setCurrentNOE(num);
         }
     };
 

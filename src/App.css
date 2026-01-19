@@ -55,7 +55,7 @@ input[type="number"] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #8fb5ee;
   cursor: default;
 }
 
@@ -65,7 +65,7 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #40eee8;
 }
 
 .event {
@@ -85,4 +85,12 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+}
+
+.alerts-container {
+ position: fixed;
+ top: 0px;
+ left: 20px;
+ width: 250px;
+ z-index: 1000;
 }
