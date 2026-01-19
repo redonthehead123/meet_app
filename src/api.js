@@ -1,4 +1,5 @@
 import mockData from './mock-data';
+import NProgress from 'nprogress';
 
 const getToken = async (code) => {
  const encodeCode = encodeURIComponent(code);
