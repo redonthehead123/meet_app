@@ -13,7 +13,7 @@ const CityEventsChart = ({ allLocations, events }) => {
 
   useEffect(() => {
     setData(getData());
-  }, [`${data}`]);
+  }, [allLocations, events]);
 
   const getData = () => {
     const data = allLocations.map((location) => {
@@ -36,7 +36,7 @@ const CityEventsChart = ({ allLocations, events }) => {
       >
         <CartesianGrid />
         <XAxis type="category" dataKey="city" name="city" />
-        <YAxis type="number" dataKey="count" name="number of events" allowDecimals={false} />
+        <YAxis type="number" dataKey="count" name="number of events" />
         <Tooltip cursor={{ strokeDasharray: '3 3' }} />
         <Scatter name="A school" data={data} fill="#8884d8" />
       </ScatterChart>
