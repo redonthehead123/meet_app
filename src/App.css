@@ -2,7 +2,8 @@
 .App {
   text-align: center;
   padding: 2% 5%;
-  width: 100%;
+  width: 90% !important;
+  margin: 0 auto !important;
 }
 
 .App * {
@@ -12,14 +13,6 @@
 ul {
   padding: 0;
   list-style: none;
-}
-
-.event-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
 }
 
 p {

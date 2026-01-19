@@ -38,6 +38,11 @@ const checkToken = async (accessToken) => {
  * This function will fetch the list of all events
  */
 export const getEvents = async () => {
+ // Use mock data for local development
+ if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+   return mockData;
+ }
+
  if (!navigator.onLine) {
    const events = localStorage.getItem("lastEvents");
    return events?JSON.parse(events):[];
