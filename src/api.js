@@ -48,39 +48,33 @@ export const getEvents = async () => {
    return events?JSON.parse(events):[];
  }
 
- try {
-   const token = await getAccessToken();
+ const token = await getAccessToken();
 
-   const removeQuery = () => {
-    let newurl;
-    if (window.history.pushState && window.location.pathname) {
-      newurl =
-        window.location.protocol +
-        "//" +
-        window.location.host +
-        window.location.pathname;
-      window.history.pushState("", "", newurl);
-    } else {
-      newurl = window.location.protocol + "//" + window.location.host;
-      window.history.pushState("", "", newurl);
-    }
-   };
+ const removeQuery = () => {
+  let newurl;
+  if (window.history.pushState && window.location.pathname) {
+    newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+ };
 
-   if (token) {
-     removeQuery();
-     const url =  "https://iw1c2ne4g9.execute-api.us-east-2.amazonaws.com/dev/api/get-events" + "/" + token;
-     const response = await fetch(url);
-     const result = await response.json();
-     if (result) {
-       NProgress.done();
-       localStorage.setItem("lastEvents", JSON.stringify(result.events));
-       return result.events;
-     } else return mockData;
-   }
- } catch (error) {
-   console.error('Error fetching events:', error);
-   const cachedEvents = localStorage.getItem("lastEvents");
-   return cachedEvents ? JSON.parse(cachedEvents) : mockData;
+ if (token) {
+   removeQuery();
+   const url =  "https://iw1c2ne4g9.execute-api.us-east-2.amazonaws.com/dev/api/get-events" + "/" + token;
+   const response = await fetch(url);
+   const result = await response.json();
+   if (result) {
+     NProgress.done();
+     localStorage.setItem("lastEvents", JSON.stringify(result.events));
+     return result.events;
+   } else return null;
  }
 };
 
