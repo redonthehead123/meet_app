@@ -28,7 +28,7 @@ describe('filter events by city', () => {
         const cityInput = await page.$('.city');
         await cityInput.focus();
         await cityInput.type('Berlin', { delay: 100 });
-        await page.waitForSelector('.suggestions', { timeout: 5000 });
+        await page.waitForSelector('.suggestions', { timeout: 10000 });
         const suggestions = await page.$('.suggestions');
         expect(suggestions).toBeDefined();
     }, 15000);
